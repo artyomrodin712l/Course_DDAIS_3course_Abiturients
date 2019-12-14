@@ -1,0 +1,89 @@
+﻿@model RepairServiceCenterASP.Models.Order
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Удаление</h2>
+
+<h3>Вы действительно хотите удалить данный заказ?</h3>
+<div>
+    <h4>Order</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOrder)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DateOrder)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ReturnDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ReturnDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FullNameCustumer)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FullNameCustumer)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.GuaranteeMark)
+        </dt>
+        <dd>
+            @if ((bool)Model.GuaranteeMark)
+            {
+                <span>Имеется</span>
+            }
+            else
+            {
+                <span>Отсутствует</span>
+            }
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.GuaranteePeriod)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GuaranteePeriod)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RepairedModel)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RepairedModel.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeOfFault)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TypeOfFault.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ServicedStore)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ServicedStore.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Employee.FullName)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="OrderId" />
+        <input type="submit" value="Удалить" class="btn btn-default" /> |
+        <a asp-action="Index">Вернуться назад</a>
+    </form>
+</div>

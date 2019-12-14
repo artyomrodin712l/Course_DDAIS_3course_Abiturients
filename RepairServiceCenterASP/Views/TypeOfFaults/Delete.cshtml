@@ -1,0 +1,53 @@
+﻿@model RepairServiceCenterASP.Models.TypeOfFault
+
+@{
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+<h2>Удаление</h2>
+<h3>Вы действительно хотите удалить неисправность "@Model.Name"?</h3>
+<div>
+    <h4>Вид неисправности</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MethodRepair)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MethodRepair)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkPrice)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.WorkPrice)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.RepairedModel)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RepairedModel.RepairedModelId)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="TypeOfFaultId" />
+        <input type="submit" value="Удалить" class="btn btn-default" /> |
+        <a asp-action="Index">Вернуться назад</a>
+    </form>
+</div>
+</body>
+</html>
